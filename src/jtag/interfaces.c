@@ -20,6 +20,9 @@
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
+#if BUILD_DIRTYJTAG == 1
+extern struct adapter_driver dirtyjtag_adapter_driver;
+#endif
 
 #include "interfaces.h"
 
@@ -264,6 +267,9 @@ struct adapter_driver *adapter_drivers[] = {
 #endif
 #if BUILD_AM335XGPIO == 1
 		&am335xgpio_adapter_driver,
+#endif
+#if BUILD_DIRTYJTAG == 1
+		&dirtyjtag_adapter_driver,
 #endif
 		NULL,
 	};
